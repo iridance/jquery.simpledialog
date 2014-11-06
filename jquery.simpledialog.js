@@ -1,8 +1,8 @@
 /* 
- * Jquery simple-dialog v0.3
+ * Jquery simple-dialog v0.3.1
  * Author Irice
  * Create 2014/08/05
- * Modify 2014/08/11
+ * Modify 2014/11/06
  */
 (function($){
     $(function(){
@@ -15,7 +15,9 @@
 				var container = $(obj).find('.simple-container');
 				var wheight = $(window).height(); //cache window height.
                 if (wheight <= container.height()) { container.css('top', $(window).scrollTop()); }
-				else { container.css('top', Math.floor((wheight - container.height()) / 2)); }
+				else { 
+					container.css('top', $(window).scrollTop() + Math.floor(($(window).height() - container.height()) / 2));
+				}
                 $(obj).addClass('active').trigger('afterShow');
             },
             toggle: function (obj){
